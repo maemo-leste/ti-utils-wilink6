@@ -13,5 +13,7 @@ Multi-arch: same
 Depends:
  libnl-genl-3-200, 
  libnl-3-200,
+ iproute2,
+ kmod,
 Description: TI wilink6 configuration and callibration utility
 
