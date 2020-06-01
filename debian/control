@@ -1,0 +1,17 @@
+Source: ti-utils-wilink6
+Section: base
+Priority: optional
+Maintainer: Uvos <carl@uvos.xyz>
+Build-Depends:
+ libnl-3-dev,
+ libnl-genl-3-dev,
+Standards-Version: 0.73-1
+
+Package: ti-utils-wilink6
+Architecture: any
+Multi-arch: same
+Depends:
+ libnl-genl-3-200, 
+ libnl-3-200,
+Description: TI wilink6 configuration and callibration utility
+

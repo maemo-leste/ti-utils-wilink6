@@ -1,0 +1,23 @@
+#!/usr/bin/make -f
+%:
+	dh $@
+
+
+ifeq (,$(findstring debug,$(DEB_BUILD_OPTIONS)))
+DEB_CPPFLAGS_MAINT_APPEND += -DG_DEBUG_DISABLE
+else
+DEB_CFLAGS_MAINT_APPEND += -O0
+endif
+
+DEB_CPPFLAGS_MAINT_APPEND += -DG_DISABLE_CHECKS
+
+export DEB_CPPFLAGS_MAINT_APPEND DEB_CFLAGS_MAINT_APPEND
+export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+
+CONFFLAGS += 
+
+override_dh_autoreconf:
+	dh_autoreconf --as-needed
+
+override_dh_auto_configure:
+	dh_auto_configure -- $(CONFFLAGS)
