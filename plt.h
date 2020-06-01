@@ -5,10 +5,12 @@
 #define CURRENT_NVS_NAME	"/system/etc/firmware/ti-connectivity/wl12xx-nvs.bin"
 #define INSMOD_PATH		"/system/bin/insmod"
 #define RMMOD_PATH		"/system/bin/rmmod"
+#define IP_PATH		    "/system/bin/ip"
 #else
 #define CURRENT_NVS_NAME	"/lib/firmware/ti-connectivity/wl12xx-nvs.bin"
 #define INSMOD_PATH		"/sbin/insmod"
 #define RMMOD_PATH		"/sbin/rmmod"
+#define IP_PATH		    "/sbin/ip"
 #endif
 #define NEW_NVS_NAME		"./new-nvs.bin"
 #define NVS_FILE_SIZE_127X	0x390
