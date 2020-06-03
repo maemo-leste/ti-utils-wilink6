@@ -5,6 +5,7 @@ Maintainer: Uvos <carl@uvos.xyz>
 Build-Depends:
  libnl-3-dev,
  libnl-genl-3-dev,
+ debhelper (>= 10),
 Standards-Version: 0.73-1
 
 Package: ti-utils-wilink6
