@@ -44,7 +44,8 @@ static int set_interface_state(char* devname, const bool state)
     char cmd[CMDBUF_SIZE];
     snprintf(cmd, CMDBUF_SIZE, "%s link set %s %s", IP_PATH, devname, state ? "up" : "down");
     ret = system(cmd);
-    if (ret) fprintf(stderr, "Failed to set interface state using command %s\n", cmd);
+    if (ret)
+	fprintf(stderr, "WARNING: Failed to set interface state using command %s\n", cmd);
     return ret;
 }
 
@@ -1101,12 +1102,11 @@ static int plt_autocalibrate(struct nl80211_state *state, struct nl_cb *cb,
 	if (res) {
 		goto out_removenvs;
 	}
-	
-	sleep(1);
 
-	res = set_interface_state(devname, false);
-	if(res) goto out_rmmod;
-	
+	sleep(2);
+
+	set_interface_state(devname, false);
+
 	res = plt_do_power_on(state, devname);
 	if (res < 0)
 		goto out_rmmod;
